@@ -1,4 +1,4 @@
-//MODU EGOKIENA HAU DA.
+﻿//MODU EGOKIENA HAU DA.
 /*
 package eba1l;
 
@@ -135,3 +135,43 @@ public class menu {
 		}	
 	}
 }
+
+/* APUNTEAK */
+
+/* 
+
+-While(true) loop infinitu bat da. While hori, erabiltzen da denbora guztian funtzionatzeko. Loop infitu horrekin, programari esaten diogu menu-a egoteko denbora guztian aktibo 5- zenbabakia ukitu arte (Exit), hau if == 5 eta break;→(loop-a apurtzen du) batekin egin dezakegu. 
+
+-Gero erabiltzen dugu beste while(true), infinitua ere, nahi dugulako erabilltzailea zenbaki egokia erabiltzea. Azken loop honetan, zenbaki bat irakurtzen du. Zenbakia 1 eta 5 artea badago, apurtzen du loop-a eta hurrengo pausura joaten da, zenbakia tarte horren kanpoan badago, errore bat jartzen du pantailan eta jarraitzen du saiatzen/eskatzen beste zenbaki bat. Horregaitik teklatua.next() erabiltzen dugu, balore hori garbitzeko eta kodea errepokatzeko beste balio bat sartzen. 
+
+Laburpen moduan, erabiltzailea string bat edota beste zenbaki bat sartzen badu, programak hartzen du (catch erabiltzen) eta imprimatzen du errore mesu bat. “teklatua.next()” erabiltzen dugu garbitzeko “invalid input” input bufferratik.
+HONA HEMEN AZALDU DUGUNA:
+        while (true) {
+            System.out.println("Sartu zer operazio egin nahi duzun: \n"
+                    + "1 - Gehitu \n"
+                    + "2 - Kenketa \n"
+                    + "3 - Biderketa \n"
+                    + "4 - zatiketa \n"
+                    + "5 - irten");
+            while (true) {
+                try {
+                    operazioa = teklatua.nextInt();
+                    if (operazioa < 1 || operazioa > 5) {
+                        System.out.println("Sartu menu zenbaki egokia.\n"
+                                        + "1 - Gehitu \n"
+                                + "2 - Kenketa \n"
+                                + "3 - Biderketa \n"
+                                + "4 - zatiketa \n"
+                                + "5 - irten");
+                    } else {
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Sartu zenbaki bat.");
+                    teklatua.next(); // Clear invalid input
+                }
+
+            }
+ 
+
+*/

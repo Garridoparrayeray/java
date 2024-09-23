@@ -22,7 +22,7 @@ public class segundo {
             segunduak = teklatua.nextInt();
 
             if (ordua >= 0 && ordua <= 23 && minutuak >= 0 && minutuak <= 59 && segunduak >= 0 && segunduak <= 59) {
-                break;//inportantea, while batekin ezin dugu egin. Boolean bakarrik
+                break;//inportantea, while batekin ezin dugu egin. Boolean bakarrik erabili dezakegu
             } else {
                 System.out.println("Error: sartu ongi denbora.");
             }
@@ -30,19 +30,19 @@ public class segundo {
         System.out.print("Sartu orduak: ");
         ordua = teklatua.nextInt();
         // baloreak doitu
-        if (ordua < 0 || ordua > 23) {
+        if (ordua < 0 && ordua > 23) {
             System.out.println("Error: ordua txarto dago, sakatu botoia berriro sartzeko");
             return;
         }
         System.out.print("Sartu minutuak: ");
         minutuak = teklatua.nextInt();
-        if (minutuak < 0 || minutuak > 59) {
+        if (minutuak < 0 && minutuak > 59) {
             System.out.println("Error: minutuak txarto daude, sakatu botoia berriro sartzeko");
             return;
         }
         System.out.print("Sartu segunduak: ");
         segunduak = teklatua.nextInt();
-        if (segunduak < 0 || segunduak > 59) {
+        if (segunduak < 0 && segunduak > 59) {
             System.out.println("Error: segunduak txarto daude, sakatu botoia berriro sartzeko");
             return;
         }

@@ -172,6 +172,11 @@ HONA HEMEN AZALDU DUGUNA:
                 }
 
             }
+            
+  
  
-
+While(true), beste kasu batzuetan erabili dezakegu. Adibidez zatiketan.
+Zatiketan, ezin dugu eduki zatitzailean 0. NULL-a emango duelako ordun while(true) erabiliko dugu gero try and catch bat egiteko.
+try(saiatu) num_2 ==0 && laugarren operazioa erabiltzen badugu (operazioa == 4) idatziko dugu ezin izango dela kalkulatu. EZ BADA KASU HORI ETA ONDO IDATZITA
+BADAGO, apurtzen dugu eta joango gara eragiketa egitera. BAINA KASU HORI EMATEN BADA, hartuko dugu (catch) eta txarto dagoen input-a eta berriro eskatuko dugu zenbakia mesu batekin. Hori eta gero, garbitu teklatuaren input-a eta horrela errepikatzen.
 */

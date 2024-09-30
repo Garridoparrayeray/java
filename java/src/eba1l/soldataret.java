@@ -30,6 +30,6 @@ public class soldataret {
 
     //System.out.println("Soldata garbia: " + soldata_erreala);
     //modu garbiago batean eginda:
-    System.out.println("SOldata garbia: " + (soldata - atxikipena);
+    System.out.println("SOldata garbia: " + (soldata - atxikipena));
   }
 }

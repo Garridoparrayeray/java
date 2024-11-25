@@ -1,3 +1,5 @@
+package ebal2;
+
 class Pow {
     public double myPow(double x, int n) {
         //si es negativo x, se divide 1/x y n se pasa a ser positivo asi conseguimos los casos negativos

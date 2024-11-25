@@ -1,3 +1,5 @@
+package ebal2;
+
 class IntToRoman {
     public String intToRoman(int num) {
 		String zenbaki_hamartar = "";

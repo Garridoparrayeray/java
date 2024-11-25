@@ -1,3 +1,5 @@
+package ebal2;
+
 class RomanToInt {
     public int romanToInt(String s) {
         int result = 0;

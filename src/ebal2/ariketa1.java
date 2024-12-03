@@ -1,5 +1,6 @@
 package ebal2;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 // Clase ariketa1 (representa un número complejo)

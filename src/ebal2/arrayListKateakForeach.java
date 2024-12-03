@@ -2,7 +2,7 @@ package ebal2;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class arrayListKateak {
+public class arrayListKateakForeach {
     public static void main(String[] args) {
         //Array listak sortu
         ArrayList <String> array = new ArrayList<>();
@@ -19,8 +19,8 @@ public class arrayListKateak {
         
         // Sartutako string guztiak pantailaratzea
         System.out.println("Sartutako stringak:");
-        for (int i = 0; i < array.size(); i++) {
-            System.out.println(array.get(i));
+        for (String str : array) {
+            System.out.println(str);
         }
         
         teklatua.close();

@@ -14,7 +14,7 @@ public class Ikasgai implements Comparable<Ikasgai> {
     }
 
     //CONSTRUCTOR PARA METER VALORES SIEMRPE EL MISMO NOMBRE QUE EL CONSTRUCTOR PRINCIPAL
-    public Ikasgai(String nota, String azalpena, String kode){//metodo para meterle valores a lo seleccionado
+    public Ikasgai(Double nota, String azalpena, String kode){//metodo para meterle valores a lo seleccionado
         this.nota = nota;
         this.azalpena = azalpena;
         this.Kode = kode;

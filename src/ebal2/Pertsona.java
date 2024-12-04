@@ -5,6 +5,13 @@ public class Pertsona {
     protected String izena;
     protected String abizena;
    
+    //constructor vacio para inicializar todo
+    public Pertsona() {
+        this.nan = "";
+        this.izena = "";
+        this.abizena = "";
+    }
+    
     //funcion de validacion
     public void balidatuString(String value, String fieldName) {
         if (value == null || value.isEmpty()) {
@@ -18,7 +25,7 @@ public class Pertsona {
         balidatuString(abizena, "Abizena");
     }
 
-    public Pertsona(String izena, String abizena, String nan) {
+    public Pertsona(String nan, String izena, String abizena) {
         this.nan = nan;
         this.izena = izena;
         this.abizena = abizena;

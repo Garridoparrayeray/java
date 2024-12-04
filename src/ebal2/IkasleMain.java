@@ -24,7 +24,7 @@ public class IkasleMain {
             irten = false;//do amaitzeko true jartzen da
 
             switch (aukera) {
-                case 1:
+               case 1:
                     System.out.print("Sartu NAN: ");
                     String nan = teklatua.nextLine();
                     System.out.print("Sartu izena: ");
@@ -35,7 +35,7 @@ public class IkasleMain {
                     String maila = teklatua.nextLine();
                     System.out.print("Sartu zikloa: ");
                     String zikloa = teklatua.nextLine();
-                    
+
                     try {
                         Ikaslea ikaslea = new Ikaslea(nan, izena, abizena, maila, zikloa);
                         ikasleak.add(ikaslea);
@@ -44,7 +44,6 @@ public class IkasleMain {
                         System.out.println("Errorea: " + e.getMessage());
                     }
                     break;
-
                 case 2:
                     System.out.print("Sartu NAN kontsultatzeko: ");
                     String kontsultaNan = teklatua.nextLine();
@@ -56,7 +55,7 @@ public class IkasleMain {
                         }
                     }
                     if (ikasleaFound != null) {
-                        System.out.println(ikasleaFound);
+                        System.out.println("NAN: " + ikasleaFound.getNan());
                     } else {
                         System.out.println("Ikaslea ez da aurkitu NAN honekin: " + kontsultaNan);
                     }

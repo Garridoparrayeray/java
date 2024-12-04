@@ -8,9 +8,10 @@ public class Ikaslea extends Pertsona {
         super(nan, izena, abizena);//necesitas llamar al constructor de la clase padre para que funcione
         super.balidatuPertsona(nan, izena, abizena);
         this.balidatuIkaslea(maila, zikloa);
+       /*------NO ES NECESARIO POR K LO LLAMAS DESDE SUPER------
         this.nan = nan;
         this.izena = izena;
-        this.abizena = abizena;
+        this.abizena = abizena; */
         this.maila = maila;
         this.zikloa = zikloa;
     }

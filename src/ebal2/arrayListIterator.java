@@ -5,31 +5,36 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class arrayListIterator {
+
     public static void main(String[] args) {
-        // ArrayList sortu
-        ArrayList<String> array = new ArrayList<>();
-        // Scanner sortu
-        Scanner teklatua = new Scanner(System.in);
-        System.out.println("Sartu stringak (sartu ' ' (string zuria) amaitzeko):");
+        // ArrayList sortu string-ak gordetzeko
+        ArrayList<String> stringList = new ArrayList<>();
         
-        // Sartu stringak ArrayList-ean
+        // Scanner objektua erabiltzailearen sarrera jasotzeko
+        Scanner teklatua = new Scanner(System.in);
+        System.out.println("Idatzi kateak (zuriunea sartzean amaituko da):");
+
         while (true) {
-            String input = teklatua.nextLine(); // Irakurri input-a
-            if (input.isEmpty()) { // String zuriak amaitzen du
+            // Sarrerako kate bat irakurri
+            String input = teklatua.nextLine();
+            
+            // Zuriunea bada, bukatu
+            if (input.isEmpty()) {
                 break;
             }
-            array.add(input); // Sartu stringa listan
+            
+            // Katea ArrayList-era gehitu
+            stringList.add(input);
         }
+
+        // Scanner itxi
+        teklatua.close();
         
-        // Iterator sortu
-        Iterator<String> iterator = array.iterator();
-        
-        // Sartutako string guztiak pantailaratzea iterator bidez
-        System.out.println("Sartutako stringak:");
+        // ArrayList edukia Iterator bidez erakutsi
+        System.out.println("ArrayList-eko elementuak:");
+        Iterator<String> iterator = stringList.iterator();
         while (iterator.hasNext()) {
-            System.out.println(iterator.next()); // Hurrengo elementua atera eta pantailaratu
+            System.out.println(iterator.next());
         }
-        
-        teklatua.close(); // Scanner itxi
     }
 }

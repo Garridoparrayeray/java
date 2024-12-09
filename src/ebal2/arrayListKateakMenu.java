@@ -1,72 +1,75 @@
 package ebal2;
 
-import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 public class arrayListKateakMenu {
     public static void main(String[] args) {
-        ArrayList<String> array = new ArrayList<>();
         Scanner teklatua = new Scanner(System.in);
-        int aukera;
-       do {
-            // Menua erakutsi
-            System.out.println("Menua:");
-            System.out.println("1. String gehitu");
-            System.out.println("2. String bilatu");
-            System.out.println("3. String ezabatu");
-            System.out.println("4. Array erakutsi");
-            System.out.println("5. Irten");
-            System.out.print("Aukeratu zenbaki bat: ");
+        ArrayList<String> lista = new ArrayList<String>();
+        int aukera = 0;
+        String str;
 
-            aukera = teklatua.nextInt();
+        do {
+            System.out.println("-------MENU------" + "\n" +
+                "1. Gehitu array-a" + "\n" +
+                "2. Bilatu array-a" + "\n" +
+                "3. Ezabatu array-a" + "\n" +
+                "4. Array erakutsi" + "\n" +
+                "5. Irten");
+            System.out.print("Sartu zenbaki egoki bat: ");
+            try {
+                aukera = teklatua.nextInt();
+                teklatua.nextLine(); // Consume the newline character
+            } catch (InputMismatchException e) {
+                System.out.println("Sartu zenbaki egoki bat");
+                teklatua.nextLine(); // Clear invalid input
+                continue; // Skip the rest of the loop iteration
+            }
+
             switch (aukera) {
-                case 1: // String gehitu
-                    System.out.print("Sartu gehitu nahi duzun stringa: ");
-                    String gehituString = teklatua.nextLine();
-                    array.add(gehituString);
-                    System.out.println("Stringa gehitu da.");
+                case 1:
+                    System.out.println("Zer gehitu nahi duzu?");  
+                    str = teklatua.nextLine();
+                    lista.add(str);
                     break;
-
-                case 2: // String bilatu
-                    System.out.print("Sartu bilatu nahi duzun stringa: ");
-                    String bilatuString = teklatua.nextLine();
-                    if (array.contains(bilatuString)) {
-                        System.out.println("Stringa aurkitu da: " + bilatuString);
+                case 2:
+                    System.out.println("Zer arakatu nahi duzu?");
+                    str = teklatua.nextLine();
+                    if (lista.contains(str)) {
+                        System.out.println("Elementua aurkitu da: " + str);
                     } else {
-                        System.out.println("Stringa ez da aurkitu.");
+                        System.out.println("Ez dago: " + str);
                     }
                     break;
-
-                case 3: // String ezabatu
-                    System.out.print("Sartu ezabatu nahi duzun stringa: ");
-                    String ezabatuString = teklatua.nextLine();
-                    if (array.remove(ezabatuString)) {
-                        System.out.println("Stringa ezabatu da: " + ezabatuString);
+                case 3:
+                    System.out.println("Zer ezabatu nahi duzu?");
+                    str = teklatua.nextLine();
+                    if (lista.remove(str)) {
+                        System.out.println("Array " + str + " ezabatu da");
                     } else {
-                        System.out.println("Stringa ez da aurkitu, ezin da ezabatu.");
+                        System.out.println("Ez dago: " + str);
                     }
                     break;
-
-                case 4: // Array erakutsi
-                    if (array.isEmpty()) {
-                        System.out.println("Arraya hutsik dago.");
+                case 4:
+                    if (lista.isEmpty()) {
+                        System.out.println("Ez daude elementurik");
                     } else {
-                        System.out.println("Arrayaren elementuak:");
-                        for (String str : array) {
-                            System.out.println(str);
+                        for (String i : lista) {
+                            System.out.println(i);
                         }
                     }
                     break;
-
                 case 5:
-                    System.out.println("Progamatik irten");
+                    System.out.println("Irten egiten...");
                     break;
-
                 default:
-                    System.out.println("Aukera okerra, saiatu berriro.");
+                    System.out.println("Sartu zenbaki egoki bat");
                     break;
             }
-        }while (aukera > 0 || aukera < 6);
-        teklatua.close(); // Scanner itxi
+        } while (aukera < 1 || aukera > 5);
+
+        teklatua.close(); // Close the scanner
     }
 }

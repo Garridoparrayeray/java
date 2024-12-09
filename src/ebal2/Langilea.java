@@ -1,20 +1,23 @@
 package ebal2;
-import java.util.Scanner;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Langilea extends Pertsona {
     String saila;
     String lanpostua;
     double soldata;
 
-    //inicializar todo
+    // inicializar todo
     public Langilea() {
-        super();//llamamos al constructor vacio de Pertsona() que ya está inicializado alli par inicializarlo aqui tambien
+        super();// llamamos al constructor vacio de Pertsona() que ya está inicializado alli par
+                // inicializarlo aqui tambien
         this.saila = "";
         this.lanpostua = "";
         this.soldata = 0.0;
     }
-    //constructor para meter langile y pertsona
+
+    // constructor para meter langile y pertsona
     public Langilea(String nan, String izena, String abizena, String saila, String lanpostua, double soldata) {
         super(nan, izena, abizena);
         this.saila = saila;
@@ -22,42 +25,48 @@ public class Langilea extends Pertsona {
         this.soldata = soldata;
     }
 
-    //Constructor para ir metiendo datos de Langile
+    // Constructor para ir metiendo datos de Langile
     public Langilea(String saila, String lanpostua, double soldata) {
         this.saila = saila;
         this.lanpostua = lanpostua;
         this.soldata = soldata;
     }
-   
-    //hacer una copia de langile, recoges los atributos del super y los de langile propio
-    public Langilea(Langilea otro) {//haces una copia del objeto langile(otro)
+
+    // hacer una copia de langile, recoges los atributos del super y los de langile
+    // propio
+    public Langilea(Langilea otro) {// haces una copia del objeto langile(otro)
         super(otro.getNan(), otro.getIzena(), otro.getAbizena());
         this.saila = otro.saila;
         this.lanpostua = otro.lanpostua;
         this.soldata = otro.soldata;
     }
 
-    /* -----------------GETTERS Y SETTERS-------------*/
+    /* -----------------GETTERS Y SETTERS------------- */
     public String getSaila() {
         return saila;
     }
+
     public void setSaila(String saila) {
         this.saila = saila;
     }
+
     public String getLanpostua() {
         return lanpostua;
     }
+
     public void setLanpostua(String lanpostua) {
         this.lanpostua = lanpostua;
     }
+
     public double getSoldata() {
         return soldata;
     }
+
     public void setSoldata(double soldata) {
         this.soldata = soldata;
     }
 
-    /* --------------------EQUALS, HASHCODE Y TO STRING---------------------*/
+    /* --------------------EQUALS, HASHCODE Y TO STRING--------------------- */
 
     @Override
     public String toString() {
@@ -101,77 +110,90 @@ public class Langilea extends Pertsona {
         return true;
     }
 
-    public int hashCodeNan(){
+    public int hashCodeNan() {
         return this.toString().hashCode();
     }
-    public int compareTo(Langilea other){
-        return this.getNan().compareTo(other.getNan());   
+
+    public int compareTo(Langilea other) {
+        return this.getNan().compareTo(other.getNan());
     }
 
-    public void irakurri(){
+    public void irakurri() {
         Scanner teklatua = new Scanner(System.in);
-        /*COMO ESTOY HACIENDO THIS.ATRIBUTO, TENGO QUE USAR EL SET YA QUE ES UNA VARIABLE RECICLADA DEL CODIGO PRINCIPAL. SI CREASE UNA VARIABLE NUEVA, NO TENGO QUE USAR SET TAN SOLO LLAMAR LA VARIABLE NUEBA.*/
-        //pertsonen atributoak sartu
-        System.out.println("Sartu nortasuna: ");
-        this.nan = teklatua.nextLine();
-        System.out.println("Sartu izena: ");
-        this.izena = teklatua.nextLine();
-        System.out.println("Sartu abizena: ");
-        this.abizena = teklatua.nextLine();
 
-        /*SET DE LOS ATRIBUTOS DE PERTSONA */
+       
+        do {
+            System.out.print("Sartu nortasuna: ");
+            this.nan = teklatua.nextLine().trim();//trim erabiltzen da hutsuneak ipintzen badituzu, ez edukitzeko erroreak. Ezbeharrezko hutsuneak ipintzen badituzu
+            if (this.nan.isEmpty()) {
+                System.out.println("Nortasuna ezin da hutsik egon. Saiatu berriro.");
+            }
+        } while (this.nan.isEmpty());
         setNan(nan);
+
+     
+        do {
+            System.out.print("Sartu izena: ");
+            this.izena = teklatua.nextLine().trim();
+            if (this.izena.isEmpty()) {
+                System.out.println("Izena ezin da hutsik egon. Saiatu berriro.");
+            }
+        } while (this.izena.isEmpty());
         setIzena(izena);
+
+        do {
+            System.out.print("Sartu abizena: ");
+            this.abizena = teklatua.nextLine().trim();
+            if (this.abizena.isEmpty()) {
+                System.out.println("Abizena ezin da hutsik egon. Saiatu berriro.");
+            }
+        } while (this.abizena.isEmpty());
         setAbizena(abizena);
 
-        /*OTRA FORMA DE HACER ESO */
-        //setNan(teklatua.nextLine());
-        //setIzena(teklatua.nextLine());
-        //setAbizena(teklatua.nextLine());
+     
+        do {
+            System.out.print("Saila: ");
+            this.saila = teklatua.nextLine().trim();
+            if (this.saila.isEmpty()) {
+                System.out.println("Saila ezin da hutsik egon. Saiatu berriro.");
+            }
+        } while (this.saila.isEmpty());
+        setSaila(saila);
 
-        
-        //Langile atributoak sartu
-        System.out.println("Saila: ");
-        this.saila = teklatua.nextLine();
-        System.out.println("Lanpostua: ");
-        this.lanpostua = teklatua.nextLine();
+        do {
+            System.out.print("Lanpostua: ");
+            this.lanpostua = teklatua.nextLine().trim();
+            if (this.lanpostua.isEmpty()) {
+                System.out.println("Lanpostua ezin da hutsik egon. Saiatu berriro.");
+            }
+        } while (this.lanpostua.isEmpty());
+        setLanpostua(lanpostua);
 
         boolean sold = false;
-        do{
-            System.out.println("Soldata: ");
-            
-            try{
+        while (!sold) {
+            System.out.print("Soldata: ");
+            try {
                 this.soldata = teklatua.nextDouble();
-                if(this.soldata < 0){
-                    System.out.println("Soldata ezin da negatibo izan");
-                }
-                else{
+                teklatua.nextLine();
+                if (this.soldata < 0) {
+                    System.out.println("Soldata ezin da negatibo izan. Saiatu berriro.");
+                } else {
                     setSoldata(soldata);
                     sold = true;
                 }
-
-            }catch(NumberFormatException e){
+            } catch (InputMismatchException e) {
                 System.out.println("Soldata ez da zenbaki bat. Saiatu berriro.");
+                teklatua.nextLine(); // Consumir la entrada inválida
             }
-        }while(!sold);
+        }
 
-
-        /* SET DE LOS ATRIBUTOS DE LANGILE */
-        setSaila(saila);
-        setLanpostua(lanpostua);
-
-        /*OTRA FORMA DE HACER ESO */
-        //setSaila(teklatua.nextLine());
-        //setLanpostua(teklatua.nextLine());
-        //setSoldata(teklatua.nextLine());
-
-        teklatua.close();
-        
+        System.out.println("Langilearen datuak ondo sartu dira.");
     }
+    
     public static void main(String[] args) {
         Langilea langilea = new Langilea();
         langilea.irakurri();
         System.out.println(langilea);
     }
-    
+
 }

@@ -3,7 +3,7 @@ package ebal2;
 import java.util.Random;
 import java.util.Scanner;
 
-/* Wordle modukoa baina zenbakiekin. Klasean emandako materialarekin. Llaseak, konstruktoreak, try & catch, String-ak, etab erabilia */
+/* Wordle modukoa baina zenbakiekin. Klasean emandako materialarekin. Klaseak, konstruktoreak, try & catch, random, String-ak, etab erabilia. Hurrengo implementazioa: log guztioak doc batean jartzea*/
 public class RandomMasterMind {
 	private String ZenbakiSekretua;//posizio bidez egiteko zenbakia.
 	private String asmakuntza;

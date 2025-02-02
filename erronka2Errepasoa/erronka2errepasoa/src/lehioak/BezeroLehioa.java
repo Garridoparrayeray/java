@@ -4,8 +4,12 @@ import objetuak.Bezero;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+
+import main.SupermerkatuKudeaketa;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -63,11 +67,20 @@ public class BezeroLehioa extends JFrame {
         eguneratuMahai();
 
         // Paneletara gehitu
-        add(inputPanel, BorderLayout.NORTH);
-        add(scrollPane, BorderLayout.CENTER);
-        add(buttonPanel, BorderLayout.SOUTH);
+        getContentPane().add(inputPanel, BorderLayout.NORTH);
+        getContentPane().add(scrollPane, BorderLayout.CENTER);
+        getContentPane().add(buttonPanel, BorderLayout.SOUTH);
+        
+        JButton btnAtzera = new JButton("Atzera");
+        buttonPanel.add(btnAtzera);
 
         // Ekintzak
+        btnAtzera.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		SupermerkatuKudeaketa SupermerkatuKudeaketa = new SupermerkatuKudeaketa();
+        		dispose();
+        	}
+        });
         btnGorde.addActionListener(e -> gordeBezeroa());
         btnFitxategianGorde.addActionListener(e -> fitxategianGorde());
         btnIrten.addActionListener(e -> irten());
@@ -133,16 +146,18 @@ public class BezeroLehioa extends JFrame {
     }
 
     private void irten() {
-        if (aldaketakGorde) {
-            int aukera = JOptionPane.showConfirmDialog(this, "Aldaketak gorde nahi dituzu irten baino lehen?", "Irten", JOptionPane.YES_NO_CANCEL_OPTION);
-            if (aukera == JOptionPane.YES_OPTION) {
-                fitxategianGorde();
-                System.exit(0);
-            } else if (aukera == JOptionPane.NO_OPTION) {
-                System.exit(0);
+        int aukera = JOptionPane.showConfirmDialog(this, "Ziur zaude irten nahi duzula?", "Irten", JOptionPane.YES_NO_OPTION);
+        if (aukera == JOptionPane.YES_OPTION) {
+            if (aldaketakGorde) {
+                int gordeAukera = JOptionPane.showConfirmDialog(this, "Aldaketak gorde nahi dituzu?", "Gorde", JOptionPane.YES_NO_CANCEL_OPTION);
+                if (gordeAukera == JOptionPane.YES_OPTION) {
+                    fitxategianGorde();
+                } else if (gordeAukera == JOptionPane.CANCEL_OPTION) {
+                    return; // Ez irten
+                }
             }
-        } else {
             System.exit(0);
         }
     }
+
 }

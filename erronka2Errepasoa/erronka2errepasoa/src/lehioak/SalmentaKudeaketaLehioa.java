@@ -4,6 +4,9 @@ import objetuak.Salmenta;
 import objetuak.Bezero;
 
 import javax.swing.*;
+
+import main.SupermerkatuKudeaketa;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -74,7 +77,17 @@ public class SalmentaKudeaketaLehioa extends JFrame {
         lblNewLabel_3 = new JLabel("Bezero Zenbakia:");
         lblNewLabel_3.setBounds(20, 231, 150, 14);
         getContentPane().add(lblNewLabel_3);
-
+        
+        JButton btnAtzera = new JButton("Atzera");
+        btnAtzera.setBounds(96, 326, 89, 23);
+        getContentPane().add(btnAtzera);
+        
+        btnAtzera.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		SupermerkatuKudeaketa SupermerkatuKudeaketa = new SupermerkatuKudeaketa();
+        		dispose();
+        	}
+        });
         btnGorde.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

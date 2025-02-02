@@ -4,7 +4,12 @@ import objetuak.Langile;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+
+import main.SupermerkatuKudeaketa;
+
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.*;
@@ -20,6 +25,7 @@ public class LangileLehioa extends JFrame {
     private JTable table;
     private ArrayList<Langile> langileak;
     private boolean aldaketakGorde = false;
+    private JButton btnAtzera;
 
     public LangileLehioa() {
         setTitle("Langile Kudeaketa");
@@ -71,11 +77,20 @@ public class LangileLehioa extends JFrame {
         eguneratuMahai();
 
         // Paneletara gehitu
-        add(inputPanel, BorderLayout.NORTH);
-        add(scrollPane, BorderLayout.CENTER);
-        add(buttonPanel, BorderLayout.SOUTH);
-
+        getContentPane().add(inputPanel, BorderLayout.NORTH);
+        getContentPane().add(scrollPane, BorderLayout.CENTER);
+        getContentPane().add(buttonPanel, BorderLayout.SOUTH);
+        
+        btnAtzera = new JButton("Atzera");
+        buttonPanel.add(btnAtzera);
+        
         // Ekintzak
+        btnAtzera.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		SupermerkatuKudeaketa SupermerkatuKudeaketa = new SupermerkatuKudeaketa();
+        		dispose();
+        	}
+        });
         btnGorde.addActionListener(e -> gordeLangilea());
         btnFitxategianGorde.addActionListener(e -> fitxategianGorde());
         btnIrten.addActionListener(e -> irten());
@@ -89,6 +104,8 @@ public class LangileLehioa extends JFrame {
         });
     }
 
+   
+    
     private ArrayList<Langile> kargatuLangileak() {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FITXATEGIA))) {
             return (ArrayList<Langile>) ois.readObject();
